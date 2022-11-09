@@ -1,5 +1,5 @@
-import fs from "fs";
 import { artifacts, ethers } from "hardhat";
+import { Token } from "./../typechain-types/Token";
 
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
@@ -34,7 +34,7 @@ main().catch((error) => {
 
 const path = require("path");
 
-function saveFrontendFiles(token: any) {
+function saveFrontendFiles(token: Token) {
   const fs = require("fs");
   const contractsDir = path.join(
     __dirname,
@@ -58,6 +58,19 @@ function saveFrontendFiles(token: any) {
   fs.writeFileSync(
     path.join(contractsDir, "Token.json"),
     JSON.stringify(TokenArtifact, null, 2)
+  );
+
+  fs.cpSync(
+    path.join(__dirname, "..", "typechain-types"),
+    path.join(
+      __dirname,
+      "..",
+      "frontend",
+      "src",
+      "contracts",
+      "typechain-types"
+    ),
+    { recursive: true }
   );
 }
 
