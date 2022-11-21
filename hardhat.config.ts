@@ -27,6 +27,10 @@ const config: HardhatUserConfig = {
       url: `https://eth-goerli.alchemyapi.io/v2/${ALCHEMY_API_KEY}`,
       accounts: [ACCOUNT_PRIVATE_KEY],
     },
+    scroll: {
+      url: process.env.SCROLL_TESTNET_URL,
+      accounts: [ACCOUNT_PRIVATE_KEY],
+    },
   },
 };
 

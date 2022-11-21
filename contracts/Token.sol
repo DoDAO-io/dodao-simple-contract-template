@@ -17,6 +17,10 @@ contract Token is ERC20 {
         _mint(msg.sender, 1000000);
     }
 
+    function decimals() public view virtual override returns (uint8) {
+        return 2;
+    }
+
     /**
      * A function to transfer tokens.
      *

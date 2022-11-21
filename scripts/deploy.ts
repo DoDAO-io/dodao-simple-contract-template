@@ -1,12 +1,12 @@
 import { artifacts, ethers } from "hardhat";
-import { Token } from "./../typechain-types/Token";
+import { Token } from "./../typechain-types/contracts/Token";
 
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
   const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
   const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
 
-  const lockedAmount = ethers.utils.parseEther("1");
+  const lockedAmount = ethers.utils.parseEther("0.001");
 
   const Token = await ethers.getContractFactory("Token");
   const token = await Token.deploy();
