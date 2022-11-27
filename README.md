@@ -5,9 +5,18 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 Try running some of the following tasks:
 
 ```shell
-npx hardhat help
+# To compile
+npx hardhat compile
+# To test
 npx hardhat test
-REPORT_GAS=true npx hardhat test
+# To run-node
 npx hardhat node
-npx hardhat run scripts/deploy.ts
+# to deploy:
+npx hardhat run scripts/deploy.ts --network localhost
+# goerli:
+npx hardhat run scripts/deploy.ts --network goerli
+# scroll:
+npx hardhat run scripts/deploy.ts --network scroll
+# hardhat:
+npx hardhat node
 ```
