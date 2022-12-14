@@ -1,10 +1,11 @@
-import { Token } from "@contracts/typechain-types";
+import { IERC20 } from "@contracts/typechain-types";
 import { TransferEvent } from "@contracts/typechain-types/@openzeppelin/contracts/token/ERC20/ERC20";
 import { JsonRpcProvider } from "@ethersproject/providers";
 import React, { useEffect, useState } from "react";
+
 interface EventListPops {
   provider: JsonRpcProvider;
-  tokenContract: Token;
+  tokenContract: IERC20;
 }
 export function EventList({ provider, tokenContract }: EventListPops) {
   const [events, setEvents] = useState<Array<TransferEvent>>([]);
